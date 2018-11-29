@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/WyattLaneReiman/liri-node-app/issues"
   },
-  "homepage": "https://github.com/WyattLaneReiman/liri-node-app#readme"
+  "homepage": "https://github.com/WyattLaneReiman/liri-node-app#readme",
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
 }
