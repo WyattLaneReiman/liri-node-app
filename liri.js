@@ -1,27 +1,3 @@
-// require("dotenv").config();
-// var axios = require("axios");
-// var Spotify = require("node-spotify-api");
-// var moment = require("moment");
-// var keys = require("./keys.js");
-
-// var userCommand = process.argv[2];
-// var secondCommand = process.argv.slice(3).join(" ");// "the sign"
-
-// var spotCon = new Spotify(keys.spotify);
-
-// if (userCommand === "spotify-this-song") {
-//     if (!secondCommand) {
-//       secondCommand = "the sign";
-//     }
-//       spotCon.search({ type: 'track', query: "track:"+secondCommand+" artist:Ace of Base", limit: 1}, 
-//       function(err, data) {
-//         if (err) {
-//           return console.log('Error occurred: ' + err);
-//         }
-//         console.log(data); 
-//       });
-// }
-
 require("dotenv").config();
 var keys = require("./keys.js");
 var Spotify = require("node-spotify-api");
@@ -37,9 +13,9 @@ if (operation === "concert-this") {
     axios.get(concertUrl).then(
         function(response) {
             console.log("-----------------")
-            console.log(response.data[0].venue.name);
-            console.log(response.data[0].venue.city);
-            console.log(response.data[0].datetime);
+            console.log("Venue: " + response.data[0].venue.name);
+            console.log("City: " + response.data[0].venue.city);
+            console.log("Date: " + response.data[0].datetime);
             console.log("-----------------")
         }
       );  
@@ -53,14 +29,14 @@ if (operation === "concert-this") {
     var movieUrl = "http://www.omdbapi.com/?t=" + searchItem + "&y=&plot=short&apikey=trilogy";
     axios.get(movieUrl).then(function (response) {
         console.log("-----------------")
-        console.log(response.data.Title);
-        console.log(response.data.Year);
-        console.log(response.data.imdbRating);
-        console.log(response.data.Ratings[1].Value);
-        console.log(response.data.Country);
-        console.log(response.data.Language);
-        console.log(response.data.Plot);
-        console.log(response.data.Actors);
+        console.log("Title: " + response.data.Title);
+        console.log("Release Date: " + response.data.Year);
+        console.log("IMBD Rating: " + response.data.imdbRating);
+        console.log("Overall Rating: " + response.data.Ratings[1].Value);
+        console.log("Country: " + response.data.Country);
+        console.log("Language: " + response.data.Language);
+        console.log("Pilor: " + response.data.Plot);
+        console.log("Actors: " + response.data.Actors);
         console.log("-----------------")
     });
 } else if (operation === "do-what-it-says") {
@@ -90,10 +66,10 @@ function song(){
             return console.log('Error occurred: ' + err);
         }
         console.log("-----------------")
-        console.log(searchItem);
-        console.log(data.tracks.items[0].album.name);
-        console.log(data.tracks.items[0].preview_url);
-        console.log(JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
+        console.log("Title: " + searchItem);
+        console.log("Album: " + data.tracks.items[0].album.name);
+        console.log( "URL: " + data.tracks.items[0].preview_url);
+        console.log("Artist: " + JSON.stringify(data.tracks.items[0].artists[0].name, null, 2));
         console.log("-----------------")
 });
 };
