@@ -3,9 +3,13 @@ LIRI is a Language Interpretation and Recognition Interface. Use LIRI to get spo
 
 ## Installs 
 The package.json lists dependent node packages, but for your convenvice, these are the ones to install.
+
 -axios
+
 -moment
+
 -node-spotify-api
+
 -dotenv
 
 ## Get Started
